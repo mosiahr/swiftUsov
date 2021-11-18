@@ -3,7 +3,6 @@ import UIKit
 var greeting = "Hello, playground"
 
 // Tuples
-
 let myProgramStatus = (200, "In work", true)
 let myProgramStatus1: (Int, String, Bool) = (200, "In work", true)
 
@@ -139,7 +138,6 @@ default:
     print("Дракон не может быть принят в стаю")
 }
 
-
 // Switch-case and fallthrought - Позволяет перейти к телу последующего case-блока
 let level: Character = "Б"
 // определение уровня готовности
@@ -156,3 +154,78 @@ default:
     break
 }
 
+// While Loops
+var i = 1
+var resultSum = 0
+// цикл для подсчета суммы
+while i <= 10 {
+    resultSum += i
+    i += 1
+}
+resultSum  // 55
+
+// Repeat-while   // код тела оператора выполнится не менее одного раза
+var y = 1
+var result = 0
+repeat {
+    result += y
+    y += 1
+} while y <= 10
+result  // 55
+
+// For-in loops
+let numArray: Array<Int> = [1,2,3,4,5]
+var resultForIn: Int = 0
+for number in numArray {
+    resultForIn += number
+}
+resultForIn  // 15
+
+// For-in loop with numeric ranges
+for number in 1...5 {
+    print(number)
+}
+
+// For-in loop with numeric ranges and underscore
+for _ in 1...3 {
+    print("Repeating line")
+}
+
+// For-in with Dictionary
+var countriesAndBlocks = ["Россия": "СНГ", "Франция": "ЕС"]
+for (countryName, orgName) in countriesAndBlocks {
+    print("\(countryName) вступила в \(orgName)")
+}
+
+// keys
+countriesAndBlocks = ["Россия": "ЕАЭС", "Франция": "ЕС"]
+for countryName in countriesAndBlocks.keys {
+    print("страна - \(countryName)")
+}
+// values
+for orgName in countriesAndBlocks.values {
+    print("организация - \(orgName)")
+}
+
+// For-in with Arrays and enumerated
+var myMusicStyles = ["Rock", "Jazz", "Pop"]
+for (index, musicName) in myMusicStyles.enumerated() {
+    print("\(index + 1). Я люблю \(musicName)")
+}
+
+// For-in with stride
+// функция stride(from:through:by) возвращает последовательность числовых
+// элементов, начиная с from до through с шагом by
+var resultStride = 0
+for i in stride(from: 1, through: 1000, by: 2) {
+    resultStride += i
+}
+resultStride // 250000
+// функция stride(from:to:by) имеет лишь одно отличие - вместо входного параметра
+//through используется to, который исключает указанное в нем значение из последовательности
+for i in stride(from: 1, through: 10, by: 3) {
+    print(i)
+}  // 1, 4, 7, 10
+for i in stride(from: 1, to: 10, by: 3) {
+    print(i)
+}  // 1, 4, 7
