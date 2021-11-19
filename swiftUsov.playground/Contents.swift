@@ -229,3 +229,25 @@ for i in stride(from: 1, through: 10, by: 3) {
 for i in stride(from: 1, to: 10, by: 3) {
     print(i)
 }  // 1, 4, 7
+
+// For-in with where
+var resultForInWhere = 0
+for i in 1...10 where i % 2 == 0 {
+    resultForInWhere += i
+}
+resultForInWhere // 30
+
+var isRun = true
+for i in 1...10 where isRun {
+    print(i)
+}
+
+// For-in with Dictionary
+let resultsOfGame = ["Red Wings": ["2:1", "2:3"], "Capitals": ["3:6", "5:5"], "Penguins": ["3:2", "1:2"]]
+for (teamName, results) in resultsOfGame{
+    for oneResult in results {
+        print("игра с \(teamName) - \(oneResult)")
+    }
+}
+
+
